@@ -79,13 +79,10 @@ model = model.to(DEVICE)
 
 criterion = nn.CrossEntropyLoss()
 
-optimizer = Adan(
-    model.parameters(),
-    lr = LEARNING_RATE,                  # learning rate (can be much higher than Adam, up to 5-10x)
-    betas = (0.02, 0.08, 0.01), # beta 1-2-3 as described in paper - author says most sensitive to beta3 tuning
-    weight_decay = 0.02         # weight decay 0.02 is optimal per author
+optimizer = torch.optim.Adam(
+    model.parameters(), 
+    lr = LEARNING_RATE,
 )
-
 
 for epoch in tqdm.tqdm(range(EPOCHS), desc='training'):
     epoch_loss = 0
