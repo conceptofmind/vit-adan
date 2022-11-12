@@ -8,8 +8,6 @@ import tqdm
 import wandb
 import argparse
 
-from adan_pytorch import Adan
-
 from vit import ViT
 
 wandb.init(project="my-test-project")
